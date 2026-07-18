@@ -1,18 +1,17 @@
 package com.Cognizant.spring_learn;
 
+import com.Cognizant.spring_learn.Controller.CountryController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.AbstractXmlApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Optional;
 
 @SpringBootApplication
 public class SpringLearnApplication {
@@ -26,8 +25,9 @@ public class SpringLearnApplication {
 
 		LOGGER.info("Application started successfully");
 
-		displayDate();
-		DisplayCountries();
+//		displayDate();
+//		DisplayCountries();
+
 	}
 
 	static void displayDate() throws ParseException {
@@ -48,15 +48,14 @@ public class SpringLearnApplication {
 		LOGGER.info("Start");
 
 		ApplicationContext context =
-				new ClassPathXmlApplicationContext("Coutry.xml");
+				new ClassPathXmlApplicationContext("Country.xml");
 
 		ArrayList<Country> countries =
 				(ArrayList<Country>) context.getBean("countryList");
 
 		LOGGER.debug("Countries:");
-
 		for (Country country : countries) {
-			System.out.println(country);;
+			System.out.println(country);
 		}
 	}
 }
